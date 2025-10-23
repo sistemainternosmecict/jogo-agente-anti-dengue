@@ -3,6 +3,7 @@
 **Agente Anti-Dengue** é um jogo interativo e educativo desenvolvido em **React (Vite)** com o objetivo de conscientizar crianças sobre a **prevenção da dengue**, de forma divertida e envolvente.  
 O jogo foi criado especialmente para a **FLIS – Feira Literária Itinerante de Saquarema**, a pedido da **Subsecretaria de Saúde de Saquarema**.
 
+# [JOGAR](https://agente-anti-dengue.netlify.app/)
 ---
 
 ## 🎮 Sobre o Jogo
