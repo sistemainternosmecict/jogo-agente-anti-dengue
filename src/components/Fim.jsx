@@ -1,19 +1,5 @@
+import { useEffect } from "react";
 import styled from "styled-components"
-
-const Voltar = styled.button`
-    padding: 16px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    background-color: #559f95;
-    color: white;
-
-    &:hover{
-        background-color: #aaa;
-    }
-`;
 
 const Placar = styled.div`
     user-select: none;
@@ -29,12 +15,23 @@ const Placar = styled.div`
     text-align: center;
 `;
 
-export default function Fim({ dadosJogador, reiniciar }) {
+export default function Fim({ dadosJogador, setRanking, ranking, mostrarCertificado }) {
     const {nome, pontos} = dadosJogador
+
+    function rankear(){
+        setRanking([...ranking, {nome: nome, pontos: pontos}])
+        setTimeout(() => {
+            mostrarCertificado()
+        }, 3000)
+    }
+
+    useEffect(() => {
+        rankear()
+    }, [nome, pontos])
+
     return (
         <Placar>
             Parabens {nome} você terminou o jogo! Você obteve {pontos} pontos.
-            <Voltar onClick={reiniciar}>Voltar a tela inicial</Voltar>
         </Placar>
     )
 }

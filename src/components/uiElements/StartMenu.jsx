@@ -2,11 +2,11 @@ import styled from "styled-components";
 import CustomButton from "./customButton";
 import Opcoes from "./Options";
 import { useState } from "react";
-import Titulo from "../../../public/titulo.png";
+import Titulo from "/titulo.png";
 
 const MenuContainer = styled.div`
   width: 300px;
-  height: 200px;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   display: flex;
@@ -16,7 +16,7 @@ const MenuContainer = styled.div`
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   position: absolute;
-  bottom: 100px;
+  bottom: 160px;
 `;
 
 const TelaDeTitulo = styled.div`
@@ -30,7 +30,7 @@ const BtnHolder = styled.div`
   width: 100%;
 `;
 
-export default function StartMenu({ startGame, globalConfig, setGlobalConfig }) {
+export default function StartMenu({ startGame, globalConfig, setGlobalConfig, mostrarRanking }) {
     const [options, setOptions] = useState(false);
 
     function openOptions() {
@@ -48,8 +48,7 @@ export default function StartMenu({ startGame, globalConfig, setGlobalConfig }) 
                 </BtnHolder>
             </TelaDeTitulo> :
             <>
-                <h3>Opções</h3>
-                <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig}/>
+                <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking}/>
                 <CustomButton text="Back" func={openOptions}/>
             </>}
         </MenuContainer>

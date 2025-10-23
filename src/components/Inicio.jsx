@@ -12,11 +12,11 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
-export default function Inicio({ startGame, globalConfig, setGlobalConfig }) {
+export default function Inicio({ startGame, globalConfig, setGlobalConfig, mostrarRanking }) {
     return (
         <FundoJogo>
             <Wrapper>
-                <StartMenu startGame={startGame} globalConfig={globalConfig} setGlobalConfig={setGlobalConfig}/>
+                <StartMenu startGame={startGame} globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking}/>
             </Wrapper>
         </FundoJogo>
     )

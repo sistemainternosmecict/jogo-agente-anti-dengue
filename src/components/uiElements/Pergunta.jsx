@@ -1,4 +1,20 @@
 import styled from "styled-components"
+import CountdownTimer from "./CoutdownTimer";
+
+const TimerWrapper = styled.div`
+    background-color: #4b1a0c;
+    color: #ffb700;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+`;
 
 const PerguntaEstilizada = styled.div`
     display: ${(props) => (props.$index === props.$perguntaatualindex ? 'flex' : 'none')};
@@ -34,15 +50,16 @@ const Resposta = styled.button`
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    background-color: #559f95;
-    color: white;
+    background-color: #ffb700;
+    color: #4b1a0c;
+    font-size: 20px;
 
     &:hover{
-        background-color: #aaa;
+        background-color: #ecc664ff;
     }
 `;
 
-export default function Pergunta({item, index, perguntaAtualIndex, responder, msg}){
+export default function Pergunta({item, index, perguntaAtualIndex, responder, msg, setTimerFinalizado, globalConfig}){
     return (
         <PerguntaEstilizada key={index} $index={index} $perguntaatualindex={perguntaAtualIndex}>
             <Texto>{item.pergunta}</Texto>
@@ -51,7 +68,10 @@ export default function Pergunta({item, index, perguntaAtualIndex, responder, ms
                     <Resposta  key={opcaoIndex} onClick={() => responder(opcaoIndex, item)}>{opcao}</Resposta>
                 ))}
             </Respostas>
-            <p style={{width: "100%", textAlign: "center", fontSize:"18px", fontWeight:"bold"}}>{msg}</p>
+            <p style={{width: "100%", textAlign: "center", fontSize:"18px", fontWeight:"bold", color: (msg == "VOCÊ ACERTOU!") ? "#78E627" : "red"}}>{msg}</p>
+            <TimerWrapper>
+                <CountdownTimer setTimerFinalizado={setTimerFinalizado} globalConfig={globalConfig} perguntaAtualIndex={perguntaAtualIndex}/>
+            </TimerWrapper>
         </PerguntaEstilizada>
     )
 }

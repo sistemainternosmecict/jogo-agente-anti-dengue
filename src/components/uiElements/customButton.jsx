@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-const Button = styled.button`
+export const Button = styled.button`
   padding: 32px;
-  background-color: #75bda7ff;
+  background-color: #4b1a0c;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -14,7 +14,7 @@ const Button = styled.button`
   &:hover {
     background-color: #45a049;
     padding: 32px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 `;
 

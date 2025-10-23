@@ -3,7 +3,7 @@ import perguntas from '../data/perguntas.js';
 import Pergunta from './uiElements/Pergunta.jsx';
 import styled from 'styled-components';
 
-const QuestionContainer = styled.div`
+const JogoContainer = styled.div`
   position: absolute;
   display: grid;
   place-content:center;
@@ -13,8 +13,6 @@ const QuestionContainer = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 `;
-
-
 
 function embaralharArray(array) {
   const copia = [...array];
@@ -29,10 +27,13 @@ export default function Jogo({ globalConfig, dadosJogador, setDadosJogador, endG
     const [perguntasFiltradas, setPerguntasFiltradas] = useState([]);
     const perguntasEmbaralhadas = useRef(embaralharArray(perguntas));
     const [perguntaAtualIndex, setPerguntaAtualIndex] = useState(0);
+    const [timerFinalizado, setTimerFinalizado] = useState(false);
     const [msg, setMsg] = useState("")
+    const [respondida, setRespondida] = useState(false)
 
     function responder(idx, pergunta){
-        if(perguntaAtualIndex < globalConfig.qnt_questoes){
+        setRespondida(true)
+        if(perguntaAtualIndex <= globalConfig.qnt_questoes){
             if(idx == pergunta.corretas[0]){
                 setMsg("VOCÊ ACERTOU!")
                 setDadosJogador({...dadosJogador, pontos: dadosJogador.pontos + 1})
@@ -45,15 +46,18 @@ export default function Jogo({ globalConfig, dadosJogador, setDadosJogador, endG
                     setMsg("")
                 }, 2000)
             }
+
+            setTimeout(() => {
+                setPerguntaAtualIndex((prev) => prev + 1)
+                setRespondida(false)
+            }, 2000)
         }
         
-        setTimeout(() => {
-            setPerguntaAtualIndex(perguntaAtualIndex + 1)
-        }, 2000)
     }
     
     useEffect(() => {
         const filtradas = perguntasEmbaralhadas.current.slice(0, globalConfig.qnt_questoes);
+        console.log(filtradas)
         setPerguntasFiltradas(filtradas);
     }, [globalConfig]);
 
@@ -63,13 +67,20 @@ export default function Jogo({ globalConfig, dadosJogador, setDadosJogador, endG
         }
     }, [perguntaAtualIndex])
 
+    useEffect(() => {
+        if(!respondida && timerFinalizado){
+            setPerguntaAtualIndex((prev) => prev + 0.5)
+            setTimerFinalizado(false)
+        }
+    }, [timerFinalizado])
+
     return (
-        <QuestionContainer>
+        <JogoContainer>
             {perguntasFiltradas.map((item, index) => (
                 <div key={index}>
-                    <Pergunta index={index} item={item} perguntaAtualIndex={perguntaAtualIndex} responder={responder} msg={msg}/>
+                    <Pergunta index={index} item={item} perguntaAtualIndex={perguntaAtualIndex} responder={responder} msg={msg} setTimerFinalizado={setTimerFinalizado} globalConfig={globalConfig}/>
                 </div>
             ))}
-        </QuestionContainer>
+        </JogoContainer>
     )
 }
