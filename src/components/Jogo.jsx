@@ -57,7 +57,6 @@ export default function Jogo({ globalConfig, dadosJogador, setDadosJogador, endG
     
     useEffect(() => {
         const filtradas = perguntasEmbaralhadas.current.slice(0, globalConfig.qnt_questoes);
-        console.log(filtradas)
         setPerguntasFiltradas(filtradas);
     }, [globalConfig]);
 
