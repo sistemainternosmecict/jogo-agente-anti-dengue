@@ -13,10 +13,17 @@ const OpcaoContainer = styled.div`
     border-radius: 8px;
     color: white;
     box-shadow: 0 2px 4px black;
+    margin-bottom: 32px;
 
     ul{
         list-style: none;
         padding: 0;
+
+        li{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     .opcao {
@@ -44,7 +51,14 @@ const OpcaoContainer = styled.div`
     }
 `;
 
-export default function Opcoes({globalConfig, setGlobalConfig, mostrarRanking}) {
+const MenuButton = styled(Button)`
+    color: ${COR_BASE};
+    border: solid 2px ${COR_BASE};
+    font-weight: bold;
+    width: 100%;
+`;
+
+export default function Opcoes({globalConfig, setGlobalConfig, mostrarRanking, openOptions}) {
     return (
         <OpcaoContainer>
             <h2 style={{width: "100%", textAlign: "center", color: "white"}}>Opções do jogo</h2>
@@ -59,6 +73,7 @@ export default function Opcoes({globalConfig, setGlobalConfig, mostrarRanking}) 
                         <input type="number" name="tempo_questoes" id="tempo_questoes" min={3} max={15} defaultValue={globalConfig.tempo_questoes} onChange={(e) => setGlobalConfig({...globalConfig, tempo_questoes: Number(e.target.value)})}/>
                     </div>
                     <Button style={{ margin: "16px auto", width: "100%"}} onClick={mostrarRanking}>Ver o ranking</Button>
+                    <MenuButton onClick={openOptions}>Voltar</MenuButton>
                 </li>
             </ul>
         </OpcaoContainer>

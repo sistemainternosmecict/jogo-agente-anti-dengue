@@ -34,7 +34,6 @@ const MenuButton = styled(Button)`
     color: ${COR_BASE};
     border: solid 2px ${COR_BASE};
     font-weight: bold;
-    padding: 8px;
 `;
 
 const SecureImage = styled.img`
@@ -57,15 +56,14 @@ export default function StartMenu({ startGame, globalConfig, setGlobalConfig, mo
         <MenuContainer>
             {!options ?
             <TelaDeTitulo>
-                <SecureImage src={Titulo} alt="Titulo do jogo" style={{width: "20em"}} />
+                <SecureImage src={Titulo} alt="Titulo do jogo" style={{width: "24em"}} />
                 <BtnHolder>
                     <MenuButton onClick={startGame}>Novo jogo</MenuButton>
                     <MenuButton onClick={openOptions}>Opções</MenuButton>
                 </BtnHolder>
             </TelaDeTitulo> :
             <>
-                <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking}/>
-                <MenuButton onClick={openOptions}>Voltar</MenuButton>
+                <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking} openOptions={openOptions}/>
             </>}
         </MenuContainer>
     )
