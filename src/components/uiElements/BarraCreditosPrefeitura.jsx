@@ -9,8 +9,10 @@ const Barra = styled.div`
     width: 100%;
     height: 96px;
     z-index: 1;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    right: 0;
+    left:0;
     border-top: solid 3px ${COR_BASE};
 `;
 

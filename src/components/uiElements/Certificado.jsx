@@ -7,7 +7,7 @@ const COR_BASE = "#ffb601";
 const Certificado = styled.div`
     padding: 32px;
     border-radius: 8px;
-    width: 1000px;
+    width: 800px;
     position: relative;
     margin-bottom: 150px;
 `;
@@ -41,6 +41,7 @@ const MenuButton = styled(Button)`
     color: ${COR_BASE};
     border: solid 2px ${COR_BASE};
     font-weight: bold;
+    padding: 16px;
 `;
 
 export default function CertificadoComp({ dadosJogador, globalConfig, mostrarRanking }){
