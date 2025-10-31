@@ -7,7 +7,7 @@ const COR_BASE = "#ffb601";
 const Certificado = styled.div`
     padding: 32px;
     border-radius: 8px;
-    width: 800px;
+    width: 700px;
     position: relative;
     margin-bottom: 150px;
 `;
@@ -18,9 +18,9 @@ const ConteudoCertificado = styled.p`
     left:50%;
     top: 50%;
     transform: translateX(-50%);
-    font-size: 32px;
+    font-size: 24px;
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     text-align: center;
 `;
 
