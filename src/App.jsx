@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import mosquitoImage from '/agente.png'
 import Ranking from './components/uiElements/Ranking'
 import CertificadoComp from './components/uiElements/Certificado'
-import BarraCreditosPrefeitura from './components/uiElements/BarraCreditosPrefeitura'
+
 
 const AppContainer = styled.div`
   background-image: url(${mosquitoImage});
@@ -74,7 +74,6 @@ function App() {
       {estado == 3 ? <Fim dadosJogador={dadosJogador} setRanking={setRanking} ranking={ranking} mostrarCertificado={mostrarCertificado}/> : <></>}
       {estado == 4 ? <CertificadoComp dadosJogador={dadosJogador} globalConfig={globalConfig} mostrarRanking={mostrarRanking}/> : <></>}
       {estado == 5 ? <Ranking ranking={ranking} reiniciar={reiniciar} dadosJogador={dadosJogador} globalConfig={globalConfig}/> : <></>}
-      <BarraCreditosPrefeitura/>
     </AppContainer>
   )
 }

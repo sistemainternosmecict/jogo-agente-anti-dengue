@@ -3,12 +3,13 @@ import CustomButton, { Button} from "./customButton";
 import Opcoes from "./Options";
 import { useState } from "react";
 import Titulo from "/titulo.png";
+import BarraCreditosPrefeitura from './BarraCreditosPrefeitura';
 
 const COR_BASE = "#ffb601";
 
 const MenuContainer = styled.div`
   width: 300px;
-  height: auto;
+  // height: auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -65,6 +66,7 @@ export default function StartMenu({ startGame, globalConfig, setGlobalConfig, mo
             <>
                 <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking} openOptions={openOptions}/>
             </>}
+            <BarraCreditosPrefeitura />
         </MenuContainer>
     )
 }
