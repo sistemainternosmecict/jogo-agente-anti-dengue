@@ -1,22 +1,22 @@
 import styled from "styled-components";
-import CustomButton from "./customButton";
+import CustomButton, { Button} from "./customButton";
 import Opcoes from "./Options";
 import { useState } from "react";
 import Titulo from "/titulo.png";
 
+const COR_BASE = "#ffb601";
+
 const MenuContainer = styled.div`
   width: 300px;
   height: auto;
-  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   position: absolute;
-  bottom: 160px;
+  bottom: 130px;
 `;
 
 const TelaDeTitulo = styled.div`
@@ -30,6 +30,21 @@ const BtnHolder = styled.div`
   width: 100%;
 `;
 
+const MenuButton = styled(Button)`
+    color: ${COR_BASE};
+    border: solid 2px ${COR_BASE};
+    font-weight: bold;
+`;
+
+const SecureImage = styled.img`
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+`;
+
 export default function StartMenu({ startGame, globalConfig, setGlobalConfig, mostrarRanking }) {
     const [options, setOptions] = useState(false);
 
@@ -41,15 +56,15 @@ export default function StartMenu({ startGame, globalConfig, setGlobalConfig, mo
         <MenuContainer>
             {!options ?
             <TelaDeTitulo>
-                <img src={Titulo} alt="Titulo do jogo" style={{width: "500px"}} />
+                <SecureImage src={Titulo} alt="Titulo do jogo" style={{width: "500px"}} />
                 <BtnHolder>
-                    <CustomButton text="Novo jogo" func={startGame}/>
-                    <CustomButton text="Opções" func={openOptions}/>
+                    <MenuButton onClick={startGame}>Novo jogo</MenuButton>
+                    <MenuButton onClick={openOptions}>Opções</MenuButton>
                 </BtnHolder>
             </TelaDeTitulo> :
             <>
                 <Opcoes globalConfig={globalConfig} setGlobalConfig={setGlobalConfig} mostrarRanking={mostrarRanking}/>
-                <CustomButton text="Back" func={openOptions}/>
+                <MenuButton onClick={openOptions}>Voltar</MenuButton>
             </>}
         </MenuContainer>
     )

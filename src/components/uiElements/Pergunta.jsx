@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import CountdownTimer from "./CoutdownTimer";
 
+const BG_COLOR = "#4b1a0c";
+
 const TimerWrapper = styled.div`
     background-color: #4b1a0c;
     color: #ffb700;
@@ -68,7 +70,7 @@ export default function Pergunta({item, index, perguntaAtualIndex, responder, ms
                     <Resposta  key={opcaoIndex} onClick={() => responder(opcaoIndex, item)}>{opcao}</Resposta>
                 ))}
             </Respostas>
-            <p style={{width: "100%", textAlign: "center", fontSize:"18px", fontWeight:"bold", color: (msg == "VOCÊ ACERTOU!") ? "#78E627" : "red"}}>{msg}</p>
+            <p style={{width: "100%", textAlign: "center", fontSize:"18px", fontWeight:"bold", color: (msg == "VOCÊ ACERTOU!") ? "#78E627" : "red", background: BG_COLOR, padding: (msg ? 8 : 0)}}>{msg}</p>
             <TimerWrapper>
                 <CountdownTimer setTimerFinalizado={setTimerFinalizado} globalConfig={globalConfig} perguntaAtualIndex={perguntaAtualIndex}/>
             </TimerWrapper>

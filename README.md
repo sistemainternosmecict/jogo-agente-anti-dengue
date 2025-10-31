@@ -48,7 +48,7 @@ O jogo tem como propósito **reforçar o aprendizado** sobre:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/<seu-usuario>/jogo-agente-anti-dengue.git
+git clone https://github.com/sistemainternosmecict/jogo-agente-anti-dengue
 ```
 
 ### 2. Rodar localmente

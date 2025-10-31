@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import certificadoImage from  "../../assets/cert3.png";
-import Button from "./customButton";
+import { Button } from "./customButton";
+
+const COR_BASE = "#ffb601";
 
 const Certificado = styled.div`
     padding: 32px;
     border-radius: 8px;
-    width: 1200px;
+    width: 1000px;
     position: relative;
     margin-bottom: 150px;
 `;
@@ -32,6 +34,13 @@ const ButtonWrapper = styled.div`
     right:50%;
     bottom: 0;
     transform: translateX(50%);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+`;
+
+const MenuButton = styled(Button)`
+    color: ${COR_BASE};
+    border: solid 2px ${COR_BASE};
+    font-weight: bold;
 `;
 
 export default function CertificadoComp({ dadosJogador, globalConfig, mostrarRanking }){
@@ -51,7 +60,7 @@ export default function CertificadoComp({ dadosJogador, globalConfig, mostrarRan
                 <br/><span style={{letterSpacing: "3px", fontWeight: "200", fontSize:"20px"}}>Data: {dataFormatada}</span>
             </ConteudoCertificado>
             <ButtonWrapper>
-                <Button text="Ver o ranking" func={mostrarRanking}/>
+                <MenuButton onClick={mostrarRanking}>Ver o ranking</MenuButton>
             </ButtonWrapper>
         </Certificado>
     )

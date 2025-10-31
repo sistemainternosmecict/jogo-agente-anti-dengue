@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import { Button } from "./customButton";
 
+const COR_BASE = "#ffb601";
+const COR_SEC = "#4b1a0c";
+
 const OpcaoContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background: ${COR_SEC};
+    padding: 16px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 2px 4px black;
 
     ul{
         list-style: none;
@@ -29,12 +37,17 @@ const OpcaoContainer = styled.div`
             font-size: 14px;
         }
     }
+
+    button{
+        color: ${COR_BASE};
+        border: solid 2px ${COR_BASE};
+    }
 `;
 
 export default function Opcoes({globalConfig, setGlobalConfig, mostrarRanking}) {
     return (
         <OpcaoContainer>
-            <h2 style={{width: "100%", textAlign: "center", color: "#4b1a0c"}}>Opções do jogo</h2>
+            <h2 style={{width: "100%", textAlign: "center", color: "white"}}>Opções do jogo</h2>
             <ul>
                 <li>
                     <div className="opcao">

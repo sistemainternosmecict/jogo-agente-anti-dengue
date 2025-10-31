@@ -1,5 +1,8 @@
 import styled from "styled-components"
 import rankingImage from  "../../assets/ranking.png";
+import CustomButton, { Button} from "./customButton";
+
+const COR_BASE = "#ffb601";
 
 const Divisao = styled.div`
     display: flex;
@@ -20,8 +23,21 @@ const RankingBase = styled.div`
     margin-left: 16px;
 `;
 
-const TituloRanking = styled.img`
+export const SecureImage = styled.img`
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+`;
+
+const TituloRanking = styled(SecureImage)`
     width: 200px;
+    position: absolute;
+    top:0;
+    filter: drop-shadow(0 2px 2px ${COR_BASE});
+    transform: translateY(-60%);
 `;
 
 const TabelaEstilizada = styled.table`
@@ -63,15 +79,14 @@ const TabelaEstilizada = styled.table`
     }
 `;
 
-const Voltar = styled.button`
-    padding: 16px;
+const Voltar = styled(Button)`
     margin: 8px 0;
-    border: none;
+    border: solid 2px ${COR_BASE};
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     background-color: #4b1a0c;
-    color: white;
+    color: ${COR_BASE};
     width: 100%;
 
     &:hover{

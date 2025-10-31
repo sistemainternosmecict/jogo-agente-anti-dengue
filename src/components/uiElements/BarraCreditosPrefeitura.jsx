@@ -1,27 +1,30 @@
 import styled from "styled-components"
 import logo from "../../assets/logo_prefeitura_branco.png"
+import { SecureImage } from './Ranking';
+
+const COR_BASE = "#ffb601";
 
 const Barra = styled.div`
-    background: rgba(0,0,0,0.9);
+    background: rgba(75, 26, 12, 0.95);
     width: 100%;
-    height: 128px;
+    height: 96px;
     z-index: 1;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    border-top: solid 3px #4b1a0c;
+    border-top: solid 3px ${COR_BASE};
 `;
 
-const LogoPrefeitura = styled.img`
-    width: 200px;
+const LogoPrefeitura = styled(SecureImage)`
+    width: 400px;
     position: absolute;
     right:50%;
-    transform: translate(50%, 35%);
+    transform: translate(50%, 50%);
     `;
 
 export default function BarraCreditosPrefeitura(){
     return (
         <Barra>
-            <LogoPrefeitura src={logo} alt="logo" />
+            <LogoPrefeitura src="/logo_edu_saude.svg" alt="logo" />
         </Barra>
     )
-}
+} 
