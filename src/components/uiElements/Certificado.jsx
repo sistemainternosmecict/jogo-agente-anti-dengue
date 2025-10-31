@@ -8,8 +8,10 @@ const Certificado = styled.div`
     padding: 32px;
     border-radius: 8px;
     width: 700px;
-    position: relative;
-    margin-bottom: 150px;
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
 `;
 
 const ConteudoCertificado = styled.p`
