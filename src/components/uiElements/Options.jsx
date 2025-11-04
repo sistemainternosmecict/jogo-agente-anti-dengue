@@ -69,7 +69,7 @@ export default function Opcoes({globalConfig, setGlobalConfig, mostrarRanking, o
                         <input type="number" name="questoes" id="questoes" min={5} max={20} defaultValue={globalConfig.qnt_questoes} onChange={(e) => setGlobalConfig({...globalConfig, qnt_questoes: Number(e.target.value)})}/>
                     </div>
                     <div className="opcao">
-                        <label htmlFor="tempo_questoes">Tempo por questao (min)</label>
+                        <label htmlFor="tempo_questoes">Tempo por questao (seg)</label>
                         <input type="number" name="tempo_questoes" id="tempo_questoes" min={3} max={15} defaultValue={globalConfig.tempo_questoes} onChange={(e) => setGlobalConfig({...globalConfig, tempo_questoes: Number(e.target.value)})}/>
                     </div>
                     <Button style={{ margin: "16px auto", width: "100%"}} onClick={mostrarRanking}>Ver o ranking</Button>
